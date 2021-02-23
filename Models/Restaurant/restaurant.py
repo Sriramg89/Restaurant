@@ -2,6 +2,7 @@ from typing import Optional
 from pydantic import BaseModel
 import datetime
 
+
 class RestDetails(BaseModel):
 
     name: str
@@ -11,6 +12,7 @@ class RestDetails(BaseModel):
     userid: int
     rating: int
     average_cost: int
+
 
 class RestEdit(RestDetails):
 

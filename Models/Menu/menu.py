@@ -19,6 +19,7 @@ class CategDetails(BaseModel):
     description: str
     restid: int
 
+
 class ItemEdit(ItemDetails):
 
     categid: Optional[int]
@@ -27,6 +28,7 @@ class ItemEdit(ItemDetails):
     cost: Optional[int]
     gluten_free: Optional[str]
     vegetarian: Optional[str]
+
 
 class CategEdit(CategDetails):
 

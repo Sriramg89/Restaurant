@@ -1,5 +1,7 @@
 from ..database import *
 from ..Restaurant.restaurant import *
+
+
 class Menu_Category(Base):
     __tablename__ = "menu_cat"
 
@@ -15,7 +17,7 @@ class Menu_Item(Base):
 
     id = Column(Integer, primary_key=True)
     categid = Column(Integer, ForeignKey("menu_cat.id"))
-    name = Column(String,unique=True)
+    name = Column(String, unique=True)
     description = Column(String)
     cost = Column(Integer)
     gluten_free = Column(String)

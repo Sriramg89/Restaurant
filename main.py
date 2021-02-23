@@ -57,7 +57,7 @@ def user_by_entry(entry: str, db: Session = Depends(get_db)):
         return {"data": data}
 
 
-@rest.post("/user/",response_model=UserDetails)
+@rest.post("/user/", response_model=UserDetails)
 def create_user(detail_request: UserDetails, db: Session = Depends(get_db)):
 
     post = User()
@@ -70,7 +70,6 @@ def create_user(detail_request: UserDetails, db: Session = Depends(get_db)):
     db.add(post)
     db.commit()
     return detail_request
-    
 
 
 @rest.delete("/user/{id}")
@@ -78,7 +77,7 @@ def del_user_by_id(id: int, db: Session = Depends(get_db)):
 
     db.query(User).filter(User.id == id).delete()
     db.commit()
-    
+
     return {
         "code": "success",
         "message": "User details deleted from the database"}
@@ -118,7 +117,7 @@ def rest_by_id(id: int, db: Session = Depends(get_db)):
     return {"data": data}
 
 
-@rest.post("/rest/",response_model=RestDetails)
+@rest.post("/rest/", response_model=RestDetails)
 def create_rest(detail_request: RestDetails, db: Session = Depends(get_db)):
 
     post = Restaurant()
@@ -140,7 +139,7 @@ def del_rest_by_id(id: int, db: Session = Depends(get_db)):
 
     db.query(Restaurant).filter(Restaurant.id == id).delete()
     db.commit()
-   
+
     return {
         "code": "success",
         "message": "Restaurant details deleted from the database"}
@@ -174,7 +173,7 @@ def categ_by_id(id: int, db: Session = Depends(get_db)):
     return {"data": data}
 
 
-@rest.post("/categ/",response_model=CategDetails)
+@rest.post("/categ/", response_model=CategDetails)
 def create_user(detail_request: CategDetails, db: Session = Depends(get_db)):
 
     post = Menu_Category()
@@ -192,7 +191,7 @@ def del_categ_by_id(id: int, db: Session = Depends(get_db)):
 
     db.query(Menu_Category).filter(Menu_Category.id == id).delete()
     db.commit()
-    
+
     return {
         "code": "success",
         "message": "Menu details deleted from the database"}
@@ -233,7 +232,7 @@ def item_by_id(id: int, db: Session = Depends(get_db)):
     return {"data": data}
 
 
-@rest.post("/item/",response_model=ItemDetails)
+@rest.post("/item/", response_model=ItemDetails)
 def create_item(detail_request: ItemDetails, db: Session = Depends(get_db)):
 
     post = Menu_Item()
@@ -254,7 +253,7 @@ def del_item_by_id(id: int, db: Session = Depends(get_db)):
 
     db.query(Menu_Item).filter(Menu_Item.id == id).delete()
     db.commit()
-    
+
     return {
         "code": "success",
         "message": "Item details deleted from the database"}
@@ -286,7 +285,8 @@ def item_by_name(id: int, db: Session = Depends(get_db)):
     data = db.query(Orders).filter(Orders.id == id).all()
     return {"data": data}
 
-@rest.post("/order/",response_model=OrderDetails)
+
+@rest.post("/order/", response_model=OrderDetails)
 def create_item(detail_request: OrderDetails, db: Session = Depends(get_db)):
 
     post = Orders()
@@ -295,7 +295,6 @@ def create_item(detail_request: OrderDetails, db: Session = Depends(get_db)):
     post.description = detail_request.description
     post.cost = detail_request.cost
     post.date = detail_request.date
-    
 
     db.add(post)
     db.commit()
@@ -307,7 +306,7 @@ def del_item_by_id(id: int, db: Session = Depends(get_db)):
 
     db.query(Orders).filter(Orders.id == id).delete()
     db.commit()
- 
+
     return {
         "code": "success",
         "message": "Item details deleted from the database"}
