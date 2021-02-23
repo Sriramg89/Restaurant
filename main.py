@@ -36,7 +36,7 @@ def user_details(db: Session = Depends(get_db)):
 @rest.get("/user/{entry}")                                                
 def user_by_entry(entry: str, db: Session = Depends(get_db)):
     
-    if(id.isnumeric()==1):
+    if(entry.isnumeric()==1):
        
         data = db.query(User).filter(User.id == entry).all()
         return {"data":data}
