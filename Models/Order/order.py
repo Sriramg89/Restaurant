@@ -9,8 +9,9 @@ class OrderDetails(BaseModel):
     description: str
     restid: int
     date: datetime.date
-    quantity : int
-    itemid : int
+    quantity: int
+    itemid: int
+
 
 class OrderEdit(OrderDetails):
 
@@ -18,5 +19,5 @@ class OrderEdit(OrderDetails):
     description: Optional[str]
     restid: Optional[int]
     date: Optional[datetime.date]
-    quantity : Optional[int]
-    itemid : Optional[int]
+    quantity: Optional[int]
+    itemid: Optional[int]

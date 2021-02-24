@@ -3,6 +3,7 @@ from ..database import *
 from ..User.user import *
 from sqlalchemy import Time
 
+
 class Restaurant(Base):
     __tablename__ = "restaurant"
 

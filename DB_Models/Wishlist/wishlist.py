@@ -2,7 +2,6 @@ from ..Menu.menu import Menu_Category
 from ..database import *
 
 
-
 class Wishlist(Base):
     __tablename__ = "wishlist"
 
@@ -11,4 +10,4 @@ class Wishlist(Base):
     description = Column(String)
     categoryid = Column(Integer, ForeignKey('menu_category.id'))
     no_of_votes = Column(Integer)
-    menu_category=relationship(Menu_Category)
+    menu_category = relationship(Menu_Category)
