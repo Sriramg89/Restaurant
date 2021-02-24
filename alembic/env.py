@@ -1,11 +1,8 @@
-from DB_Models.database import Base
 from logging.config import fileConfig
-
+from DB_Models import database
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-# import os, sys
-# base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-# sys.path.append(base_dir)
+
 from alembic import context
 
 # this is the Alembic Config object, which provides
@@ -15,12 +12,12 @@ config = context.config
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
-# from DB_Models import *
+
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = Base.metadata
+target_metadata = database.Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

@@ -8,14 +8,15 @@ class OrderDetails(BaseModel):
     userid: int
     description: str
     restid: int
-    cost: int
     date: datetime.date
-
+    quantity : int
+    itemid : int
 
 class OrderEdit(OrderDetails):
 
     userid: Optional[int]
     description: Optional[str]
     restid: Optional[int]
-    cost: Optional[int]
     date: Optional[datetime.date]
+    quantity : Optional[int]
+    itemid : Optional[int]
