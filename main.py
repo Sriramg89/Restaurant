@@ -18,7 +18,7 @@ from Models.Restaurant.restaurant import *
 from Models.Wishlist.wishlist import *
 from DB_Models.database import SessionLocal, engine
 from passlib.context import CryptContext
-
+from datetime import datetime
 rest = FastAPI()
 
 pwd_context = CryptContext(
@@ -114,6 +114,16 @@ def total_spent(id: int, db: Session = Depends(get_db)):
     return "The total amount spent is : " + \
         str(sum(x * y for x, y in zip(a, b)))
 
+
+@rest.get("/user/orderhistory/{id}")
+def order_history(id: int, db: Session = Depends(get_db)):
+
+    history = [("User Id", "Date")]
+    values = [(i[0], i[1].strftime('%m/%d/%Y'))
+              for i in db.query(Orders.id, Orders.date).filter(Orders.userid == id).all()]
+    history.extend(values)
+
+    return history
 
 # Endpoints for Restaurant Details
 
