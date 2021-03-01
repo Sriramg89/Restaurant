@@ -1,6 +1,5 @@
 from typing import Optional
 from pydantic import BaseModel
-import datetime
 
 
 class UserDetails(BaseModel):
@@ -8,8 +7,8 @@ class UserDetails(BaseModel):
     name: str
     email: str
     password: str
-    age: int
-    mobile: int
+    age: Optional[int]
+    mobile: Optional[int]
 
 
 class UserEdit(UserDetails):

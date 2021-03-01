@@ -1,12 +1,7 @@
-import sqlalchemy
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Date
-from sqlalchemy import Boolean, ForeignKey, Numeric
+from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import relationship
-from sqlalchemy.sql.expression import null, true
-from sqlalchemy.sql.schema import ForeignKeyConstraint
-from sqlalchemy.sql.sqltypes import DateTime
+
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./restaurant.db"
 
